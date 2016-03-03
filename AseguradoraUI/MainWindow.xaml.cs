@@ -41,9 +41,9 @@ namespace AseguradoraUI
 
         private void AddRows(Policy[] pol)
         {
+            var rg = new TableRowGroup();
             foreach (var policy in pol)
             {
-                var rg = new TableRowGroup();
                 TableRow tR = new TableRow();
                 rg.Rows.Add(tR);
                 TableCell id = new TableCell(new Paragraph(new Run(policy.ID.ToString())));
@@ -55,15 +55,15 @@ namespace AseguradoraUI
                 tR.Cells.Add(id);
                 tR.Cells.Add(name);
                 tR.Cells.Add(description);
-                TablePoliza.RowGroups.Add(rg);
             }
+            TablePoliza.RowGroups.Add(rg);
         }
 
         private void RemoveRows()
         {
-            for(int i = 1; i < TablePoliza.RowGroups.Count; i++)
+            for (int i = 1; i < TablePoliza.RowGroups.Count; i++)
             {
-                TablePoliza.RowGroups.RemoveAt(i);
+                TablePoliza.RowGroups.Remove(TablePoliza.RowGroups[i]);
             }
         }
 

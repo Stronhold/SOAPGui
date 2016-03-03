@@ -9,7 +9,7 @@
     <StackPanel>
         <StackPanel Width="Auto" Height="Auto">
             <TextBlock Text="Pólizas existentes" FontSize="16" Margin="20,20,0,0"></TextBlock>
-            <FlowDocumentScrollViewer Name="Table" VerticalScrollBarVisibility="Disabled"  HorizontalScrollBarVisibility="Disabled" MouseRightButtonDown="FlowDocumentScrollViewer_MouseRightButtonDown">
+            <FlowDocumentScrollViewer Name="Table" VerticalScrollBarVisibility="Visible" MaxHeight="300" HorizontalScrollBarVisibility="Disabled" MouseRightButtonDown="FlowDocumentScrollViewer_MouseRightButtonDown">
                 <FlowDocument>
                     <Table Name="TablePoliza">
                         <Table.Columns>
