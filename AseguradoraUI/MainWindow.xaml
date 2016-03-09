@@ -5,17 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AseguradoraUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="Auto" Width="Auto">
+        Title="MainWindow" Height="Auto" Width="Auto" Activated="Window_Activated">
     <StackPanel>
         <StackPanel Width="Auto" Height="Auto">
             <TextBlock Text="Pólizas existentes" FontSize="16" Margin="20,20,0,0"></TextBlock>
-            <FlowDocumentScrollViewer Name="Table" VerticalScrollBarVisibility="Visible" MaxHeight="300" HorizontalScrollBarVisibility="Disabled" MouseRightButtonDown="FlowDocumentScrollViewer_MouseRightButtonDown">
+            <FlowDocumentScrollViewer Name="Table" VerticalScrollBarVisibility="Hidden" MaxHeight="300" HorizontalScrollBarVisibility="Disabled" MouseRightButtonDown="FlowDocumentScrollViewer_MouseRightButtonDown" PreviewMouseRightButtonDown="Table_PreviewMouseRightButtonDown">
                 <FlowDocument>
                     <Table Name="TablePoliza">
                         <Table.Columns>
                             <TableColumn Name="ID"></TableColumn>
                             <TableColumn Name="Name"></TableColumn>
                             <TableColumn Name="Description"></TableColumn>
+                            <TableColumn Name="Type"></TableColumn>
                         </Table.Columns>
                         <TableRowGroup>
                             <TableRow Background="Gray">
@@ -27,6 +28,9 @@
                                 </TableCell>
                                 <TableCell ColumnSpan="1" TextAlignment="Center">
                                     <Paragraph>Description</Paragraph>
+                                </TableCell>
+                                <TableCell ColumnSpan="1" TextAlignment="Center">
+                                    <Paragraph>Type</Paragraph>
                                 </TableCell>
 
                             </TableRow>
@@ -56,14 +60,17 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Column="0" Grid.Row="0" Margin="0,10,20,0">ID: </TextBlock>
                 <TextBlock Grid.Column="0" Grid.Row="1" Margin="0,10,20,0">Name: </TextBlock>
                 <TextBlock Grid.Column="0" Grid.Row="2" Margin="0,10,20,0">Description: </TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="3" Margin="0,10,20,0">Type</TextBlock>
                 <TextBox Grid.Column="1" Grid.Row="0" Name="id" Margin="0,10,20,0"></TextBox>
                 <TextBox Grid.Column="1" Grid.Row="1" Name="name" Margin="0,10,20,0"></TextBox>
                 <TextBox Grid.Column="1" Grid.Row="2" Name="description" Margin="0,10,20,0"></TextBox>
-                <Button Grid.Column="1" Grid.Row="3" Name="enviar" Margin="0,10,20,0" Click="enviar_Click">Send</Button>
+                <ComboBox Grid.Column="1" Grid.Row="3" Name="comboBoxType" Margin="0,10,20,0"></ComboBox>
+                <Button Grid.Column="1" Grid.Row="4" Name="enviar" Margin="0,10,20,0" Click="enviar_Click">Send</Button>
             </Grid>
         </StackPanel>
     </StackPanel>

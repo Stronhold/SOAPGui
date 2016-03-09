@@ -31,6 +31,9 @@ namespace AseguradoraUI.ServicePolicy {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -80,6 +83,19 @@ namespace AseguradoraUI.ServicePolicy {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -113,10 +129,10 @@ namespace AseguradoraUI.ServicePolicy {
         System.Threading.Tasks.Task<AseguradoraUI.ServicePolicy.Policy[]> GetAllPoliciesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/AddPolicy", ReplyAction="http://tempuri.org/IServicePolicy/AddPolicyResponse")]
-        bool AddPolicy(int id, string name, string desc);
+        bool AddPolicy(int id, string name, string desc, string type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/AddPolicy", ReplyAction="http://tempuri.org/IServicePolicy/AddPolicyResponse")]
-        System.Threading.Tasks.Task<bool> AddPolicyAsync(int id, string name, string desc);
+        System.Threading.Tasks.Task<bool> AddPolicyAsync(int id, string name, string desc, string type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/RemovePolicy", ReplyAction="http://tempuri.org/IServicePolicy/RemovePolicyResponse")]
         bool RemovePolicy(int id);
@@ -125,10 +141,10 @@ namespace AseguradoraUI.ServicePolicy {
         System.Threading.Tasks.Task<bool> RemovePolicyAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/UpdatePolicy", ReplyAction="http://tempuri.org/IServicePolicy/UpdatePolicyResponse")]
-        bool UpdatePolicy(int id, string name, string desc);
+        bool UpdatePolicy(int id, string name, string desc, string type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/UpdatePolicy", ReplyAction="http://tempuri.org/IServicePolicy/UpdatePolicyResponse")]
-        System.Threading.Tasks.Task<bool> UpdatePolicyAsync(int id, string name, string desc);
+        System.Threading.Tasks.Task<bool> UpdatePolicyAsync(int id, string name, string desc, string type);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -182,12 +198,12 @@ namespace AseguradoraUI.ServicePolicy {
             return base.Channel.GetAllPoliciesAsync();
         }
         
-        public bool AddPolicy(int id, string name, string desc) {
-            return base.Channel.AddPolicy(id, name, desc);
+        public bool AddPolicy(int id, string name, string desc, string type) {
+            return base.Channel.AddPolicy(id, name, desc, type);
         }
         
-        public System.Threading.Tasks.Task<bool> AddPolicyAsync(int id, string name, string desc) {
-            return base.Channel.AddPolicyAsync(id, name, desc);
+        public System.Threading.Tasks.Task<bool> AddPolicyAsync(int id, string name, string desc, string type) {
+            return base.Channel.AddPolicyAsync(id, name, desc, type);
         }
         
         public bool RemovePolicy(int id) {
@@ -198,12 +214,12 @@ namespace AseguradoraUI.ServicePolicy {
             return base.Channel.RemovePolicyAsync(id);
         }
         
-        public bool UpdatePolicy(int id, string name, string desc) {
-            return base.Channel.UpdatePolicy(id, name, desc);
+        public bool UpdatePolicy(int id, string name, string desc, string type) {
+            return base.Channel.UpdatePolicy(id, name, desc, type);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdatePolicyAsync(int id, string name, string desc) {
-            return base.Channel.UpdatePolicyAsync(id, name, desc);
+        public System.Threading.Tasks.Task<bool> UpdatePolicyAsync(int id, string name, string desc, string type) {
+            return base.Channel.UpdatePolicyAsync(id, name, desc, type);
         }
     }
 }
