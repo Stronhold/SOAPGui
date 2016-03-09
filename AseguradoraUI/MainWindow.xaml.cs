@@ -31,30 +31,23 @@ namespace AseguradoraUI
             {
                 comboBoxType.Items.Add(t);
             }
+            if(comboBoxType.Items.Count > 0)
+            {
+                comboBoxType.SelectedIndex = 0;
+            }
         }
 
-        private void FlowDocumentScrollViewer_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Ha hecho click");
-        }
-
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var pol = await GetPolicies();
+            ServicePolicyClient ServicePolicy = new ServicePolicyClient();
+            var pol = ServicePolicy.GetAllPolicies();
             RemoveRows();
             AddRows(pol);
         }
 
-        private async Task<Policy []> GetPolicies()
-        {
-            ServicePolicyClient ServicePolicy = new ServicePolicyClient();
-            var pol = ServicePolicy.GetAllPolicies();
-            return pol;
-        }
-
         private void AddRows(Policy[] pol)
         {
-            var rg = TablePoliza.RowGroups[0];
+            var rg = new TableRowGroup();//TablePoliza.RowGroups[0];
             foreach (var policy in pol)
             {
                 TableRow tR = new TableRow();
@@ -72,13 +65,14 @@ namespace AseguradoraUI
                 tR.Cells.Add(description);
                 tR.Cells.Add(type);
             }
+            TablePoliza.RowGroups.Add(rg);
         }
 
         private void RemoveRows()
         {
             for (int i = 1; i < TablePoliza.RowGroups.Count; i++)
             {
-                TablePoliza.RowGroups[0].Rows.Remove(TablePoliza.RowGroups[0].Rows[i]);
+                TablePoliza.RowGroups.Remove(TablePoliza.RowGroups[i]);
             }
         }
 
@@ -91,10 +85,17 @@ namespace AseguradoraUI
         {
             ServicePolicyClient ServicePolicy = new ServicePolicyClient();
             Policy p = new Policy();
-            int ident = Convert.ToInt32(id.Text);
+            int ident;
+            bool result = Int32.TryParse(id.Text, out ident);
+            if (!result)
+            {
+                MessageBox.Show("Error, the ID must be a number", "Error with parameter: ID", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             string n = name.Text;
             string desc = description.Text;
-            bool added = ServicePolicy.AddPolicy(ident, n, desc, "");
+            string type = comboBoxType.Text;
+            bool added = ServicePolicy.AddPolicy(ident, n, desc, type);
             if (!added)
             {
                 MessageBox.Show("Error, your policy exists in the database", "Error adding to DB", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -111,13 +112,8 @@ namespace AseguradoraUI
             TableRow row = sender as TableRow;
             TableCell tcID = row.Cells[0];
             TableCell tcName = row.Cells[1];
-            TableCell tcDesc =    row.Cells[2];
+            TableCell tcDesc = row.Cells[2];
             Console.WriteLine();
-        }
-
-        private void Window_Activated(object sender, EventArgs e)
-        {
-            Console.WriteLine("sadfdsf");
         }
     }
 }
