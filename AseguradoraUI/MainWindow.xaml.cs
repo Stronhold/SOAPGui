@@ -37,10 +37,10 @@ namespace AseguradoraUI
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             ServicePolicyClient ServicePolicy = new ServicePolicyClient();
-            var pol = ServicePolicy.GetAllPolicies();
+            var pol = await ServicePolicy.GetAllPoliciesAsync();
             RemoveRows();
             AddRows(pol);
         }
@@ -81,7 +81,7 @@ namespace AseguradoraUI
 
         }
 
-        private void enviar_Click(object sender, RoutedEventArgs e)
+        private async void enviar_Click(object sender, RoutedEventArgs e)
         {
             ServicePolicyClient ServicePolicy = new ServicePolicyClient();
             Policy p = new Policy();
@@ -95,7 +95,7 @@ namespace AseguradoraUI
             string n = name.Text;
             string desc = description.Text;
             string type = comboBoxType.Text;
-            bool added = ServicePolicy.AddPolicy(ident, n, desc, type);
+            bool added = await ServicePolicy.AddPolicyAsync(ident, n, desc, type);
             if (!added)
             {
                 MessageBox.Show("Error, your policy exists in the database", "Error adding to DB", MessageBoxButton.OK, MessageBoxImage.Error);

@@ -120,24 +120,18 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServicePolicy\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServicePolicy\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServicePolicy\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="Assets\types.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Service References\ServicePolicy\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\ServicePolicy\configuration.svcinfo" />
+    <None Include="Service References\ServicePolicy\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\types.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <WCFMetadataStorage Include="Service References\ServicePolicy\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
