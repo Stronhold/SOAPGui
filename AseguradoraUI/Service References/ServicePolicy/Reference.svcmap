@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="dca7363c-9fe4-4c58-848c-d6f5aa74f2fc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fc24ff70-2568-4391-b983-e8d4f1fd142f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,11 @@
     <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/Aseguradora/Service1/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="f69d69ce-40cc-46ef-ba1f-1d9f99e02c97" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Aseguradora/Service1/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="8c592344-de7d-4636-834d-729fd27674bc" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Aseguradora/Service1/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="3b843779-23ff-42a4-ac14-0cce1625ba98" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Aseguradora/Service1/mex" />
-    <MetadataFile FileName="Aseguradora.xsd" MetadataType="Schema" ID="50d2a694-4830-4d88-9f6f-fdbd32765bea" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Aseguradora/Service1/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="40dffc03-6d78-4467-82ac-eb715940392a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Aseguradora/Service1/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="c03627cb-6328-4c9c-8f85-eb2ccccca15b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Aseguradora/Service1/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="7849ac68-5783-42dc-9142-e2f849a20acc" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Aseguradora/Service1/mex" />
+    <MetadataFile FileName="Aseguradora.xsd" MetadataType="Schema" ID="98619cc8-f119-474e-a76b-d58a9aaf3e97" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Aseguradora/Service1/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="2c620802-ddd3-48d7-8462-ba772a762569" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Aseguradora/Service1/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

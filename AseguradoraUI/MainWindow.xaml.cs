@@ -37,7 +37,12 @@ namespace AseguradoraUI
             }
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            refreshTable();
+        }
+
+        private async void refreshTable()
         {
             ServicePolicyClient ServicePolicy = new ServicePolicyClient();
             var pol = await ServicePolicy.GetAllPoliciesAsync();
@@ -66,6 +71,7 @@ namespace AseguradoraUI
                 tR.Cells.Add(type);
             }
             TablePoliza.RowGroups.Add(rg);
+            btnEditar.IsEnabled = true;
         }
 
         private void RemoveRows()
@@ -78,7 +84,8 @@ namespace AseguradoraUI
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            editRows ed = new editRows();
+            ed.Show();
         }
 
         private async void enviar_Click(object sender, RoutedEventArgs e)

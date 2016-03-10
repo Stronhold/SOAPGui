@@ -5,6 +5,7 @@
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/Aseguradora" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IServicePolicy_GetData_InputMessage">
@@ -24,6 +25,12 @@
   </wsdl:message>
   <wsdl:message name="IServicePolicy_GetAllPolicies_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllPoliciesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicePolicy_GetAllID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllID" />
+  </wsdl:message>
+  <wsdl:message name="IServicePolicy_GetAllID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllIDResponse" />
   </wsdl:message>
   <wsdl:message name="IServicePolicy_AddPolicy_InputMessage">
     <wsdl:part name="parameters" element="tns:AddPolicy" />
@@ -55,6 +62,10 @@
     <wsdl:operation name="GetAllPolicies">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicePolicy/GetAllPolicies" message="tns:IServicePolicy_GetAllPolicies_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicePolicy/GetAllPoliciesResponse" message="tns:IServicePolicy_GetAllPolicies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicePolicy/GetAllID" message="tns:IServicePolicy_GetAllID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicePolicy/GetAllIDResponse" message="tns:IServicePolicy_GetAllID_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddPolicy">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicePolicy/AddPolicy" message="tns:IServicePolicy_AddPolicy_InputMessage" />
@@ -91,6 +102,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllPolicies">
       <soap:operation soapAction="http://tempuri.org/IServicePolicy/GetAllPolicies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllID">
+      <soap:operation soapAction="http://tempuri.org/IServicePolicy/GetAllID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

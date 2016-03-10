@@ -128,6 +128,12 @@ namespace AseguradoraUI.ServicePolicy {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/GetAllPolicies", ReplyAction="http://tempuri.org/IServicePolicy/GetAllPoliciesResponse")]
         System.Threading.Tasks.Task<AseguradoraUI.ServicePolicy.Policy[]> GetAllPoliciesAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/GetAllID", ReplyAction="http://tempuri.org/IServicePolicy/GetAllIDResponse")]
+        int[] GetAllID();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/GetAllID", ReplyAction="http://tempuri.org/IServicePolicy/GetAllIDResponse")]
+        System.Threading.Tasks.Task<int[]> GetAllIDAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/AddPolicy", ReplyAction="http://tempuri.org/IServicePolicy/AddPolicyResponse")]
         bool AddPolicy(int id, string name, string desc, string type);
         
@@ -196,6 +202,14 @@ namespace AseguradoraUI.ServicePolicy {
         
         public System.Threading.Tasks.Task<AseguradoraUI.ServicePolicy.Policy[]> GetAllPoliciesAsync() {
             return base.Channel.GetAllPoliciesAsync();
+        }
+        
+        public int[] GetAllID() {
+            return base.Channel.GetAllID();
+        }
+        
+        public System.Threading.Tasks.Task<int[]> GetAllIDAsync() {
+            return base.Channel.GetAllIDAsync();
         }
         
         public bool AddPolicy(int id, string name, string desc, string type) {
