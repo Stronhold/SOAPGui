@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AseguradoraUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="Auto" Width="Auto" >
+        Title="Policy editor" Height="Auto" Width="Auto" >
     <StackPanel>
         <StackPanel Width="Auto" Height="Auto">
             <TextBlock Text="Pólizas existentes" FontSize="16" Margin="20,20,0,0"></TextBlock>

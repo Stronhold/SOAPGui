@@ -5,18 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AseguradoraUI"
         mc:Ignorable="d"
-        Title="Edit row" Height="101" Width="621" ResizeMode="NoResize" Initialized="Window_Initialized">
-    <Grid Margin="0,0,4,0">
-        <Label x:Name="lblID" Content="Id&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top" Width="23" Height="29"/>
-        <ComboBox x:Name="cboxID" HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.908,1.409" Margin="33,26,0,0" Height="20" SelectionChanged="cboxIDChange"/>
-        <Label x:Name="lblName" Content="Name&#xA;" HorizontalAlignment="Left" Margin="83,21,0,0" VerticalAlignment="Top" Width="43" Height="29"/>
-        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="126,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="70"/>
-        <Label x:Name="lblDesc" Content="Description&#xA;" HorizontalAlignment="Left" Margin="201,21,0,0" VerticalAlignment="Top" Width="74" Height="29"/>
-        <TextBox x:Name="txtDesc" HorizontalAlignment="Left" Margin="275,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="100"/>
-        <Label x:Name="lblType" Content="Type&#xA;" HorizontalAlignment="Left" Margin="380,21,0,0" VerticalAlignment="Top" Width="39" Height="29"/>
-        <ComboBox x:Name="cboxType" HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.908,1.409" Margin="419,26,0,0" Height="20"/>
-        <Button x:Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Left" Margin="507,11,0,0" VerticalAlignment="Top" Width="75" Click="btnAceptar_Click" IsEnabled="False"/>
-        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="507,35,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
+        Title="Edit row" Height="115" Width="600" ResizeMode="NoResize" Initialized="Window_Initialized">
+    <StackPanel>
+        <Grid Margin="4,20,4,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" x:Name="lblID" Content="Id" Grid.RowSpan="2"/>
+            <ComboBox Grid.Column="1" Grid.Row="0" x:Name="cboxID" SelectionChanged="cboxIDChange" Grid.RowSpan="2"/>
+            <Label Grid.Column="2" Grid.Row="0" x:Name="lblName" Content="Name" Grid.RowSpan="2"/>
+            <TextBox Grid.Column="3" Grid.Row="0" x:Name="txtName" Grid.RowSpan="2"/>
+            <Label Grid.Column="4" Grid.Row="0" x:Name="lblDesc" Content="Description" Grid.RowSpan="2"/>
+            <TextBox Grid.Column="5" Grid.Row="0" x:Name="txtDesc" Grid.RowSpan="2"/>
+            <Label Grid.Column="6" Grid.Row="0" x:Name="lblType" Content="Type" Grid.RowSpan="2"/>
+            <ComboBox Grid.Column="7" Grid.Row="0" x:Name="cboxType" Grid.RowSpan="2"/>
+        </Grid>
+        <Grid Margin="300,4,4,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" x:Name="btnAceptar" Content="Accept" Click="btnAceptar_Click" IsEnabled="False" Grid.RowSpan="2"/>
+            <Button Grid.Column="1" x:Name="btnCancelar" Content="Cancel" Click="btnCancelar_Click" Grid.RowSpan="2" Margin="3,0,0,0"/>
+        </Grid>
+    </StackPanel>
 
-    </Grid>
 </Window>

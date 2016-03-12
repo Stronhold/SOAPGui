@@ -32,9 +32,9 @@ namespace AseguradoraUI
         {
             ServicePolicyClient ServicePolicy = new ServicePolicyClient();
             int[] listId = ServicePolicy.GetAllID();
-            foreach (int i in listId)
+            foreach (var i in listId)
             {
-                cboxID.Items.Add(listId[i]);
+                cboxID.Items.Add(i);
             }
 
             XmlSerializer ser = new XmlSerializer(typeof(string[]));

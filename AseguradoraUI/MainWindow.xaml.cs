@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Xml.Serialization;
 
 namespace AseguradoraUI
@@ -53,6 +54,8 @@ namespace AseguradoraUI
         private void AddRows(Policy[] pol)
         {
             var rg = new TableRowGroup();//TablePoliza.RowGroups[0];
+            int i = 0;
+
             foreach (var policy in pol)
             {
                 TableRow tR = new TableRow();
@@ -61,10 +64,19 @@ namespace AseguradoraUI
                 TableCell name = new TableCell(new Paragraph(new Run(policy.Name)));
                 TableCell description = new TableCell(new Paragraph(new Run(policy.Description)));
                 TableCell type = new TableCell(new Paragraph(new Run(policy.Type)));
+
+                if (i % 2 == 0)
+                    tR.Background = Brushes.LightGray;
+                else
+                    tR.Background = Brushes.White;
+
                 id.TextAlignment = TextAlignment.Center;
                 name.TextAlignment = TextAlignment.Center;
                 description.TextAlignment = TextAlignment.Center;
                 type.TextAlignment = TextAlignment.Center;
+
+                i++;
+
                 tR.Cells.Add(id);
                 tR.Cells.Add(name);
                 tR.Cells.Add(description);
