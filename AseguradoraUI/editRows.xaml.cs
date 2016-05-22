@@ -30,7 +30,7 @@ namespace AseguradoraUI
 
         private void Window_Initialized(object sender, EventArgs e)
         {
-            ServicePolicyClient ServicePolicy = new ServicePolicyClient();
+            var ServicePolicy = new Service1Client();
             int[] listId = ServicePolicy.GetAllID();
             foreach (var i in listId)
             {
@@ -53,11 +53,11 @@ namespace AseguradoraUI
 
         private void cboxIDChange(object sender, SelectionChangedEventArgs e)
         {
-            ServicePolicyClient ServicePolicy = new ServicePolicyClient();
-            Policy pol = ServicePolicy.GetData(int.Parse(cboxID.SelectedItem.ToString()));
-            txtName.Text = pol.Name;
-            txtDesc.Text = pol.Description;
-            cboxType.SelectedItem = pol.Type;
+            var ServicePolicy = new Service1Client();
+            var pol = ServicePolicy.GetData(int.Parse(cboxID.SelectedItem.ToString()));
+            txtName.Text = pol.name;
+            txtDesc.Text = pol.description;
+            cboxType.SelectedItem = pol.type;
             btnAceptar.IsEnabled = true;
         }
 
@@ -72,7 +72,7 @@ namespace AseguradoraUI
             String name = txtName.Text;
             String desc = txtDesc.Text;
             String type = cboxType.Text;
-            ServicePolicyClient ServicePolicy = new ServicePolicyClient();
+            var ServicePolicy = new Service1Client();
             bool pol = ServicePolicy.UpdatePolicy(id, name, desc, type);
             this.Close();
         }

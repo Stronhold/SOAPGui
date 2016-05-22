@@ -15,24 +15,24 @@ namespace AseguradoraUI.ServicePolicy {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Policy", Namespace="http://schemas.datacontract.org/2004/07/Aseguradora")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Policies", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
     [System.SerializableAttribute()]
-    public partial class Policy : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Policies : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
+        private string descriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TypeField;
+        private string nameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string typeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -41,19 +41,6 @@ namespace AseguradoraUI.ServicePolicy {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
             }
         }
         
@@ -71,27 +58,101 @@ namespace AseguradoraUI.ServicePolicy {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
+        public string description {
             get {
-                return this.NameField;
+                return this.descriptionField;
             }
             set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
+                if ((object.ReferenceEquals(this.descriptionField, value) != true)) {
+                    this.descriptionField = value;
+                    this.RaisePropertyChanged("description");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Type {
+        public string name {
             get {
-                return this.TypeField;
+                return this.nameField;
             }
             set {
-                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
-                    this.TypeField = value;
-                    this.RaisePropertyChanged("Type");
+                if ((object.ReferenceEquals(this.nameField, value) != true)) {
+                    this.nameField = value;
+                    this.RaisePropertyChanged("name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string type {
+            get {
+                return this.typeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.typeField, value) != true)) {
+                    this.typeField = value;
+                    this.RaisePropertyChanged("type");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/WcfService")]
+    [System.SerializableAttribute()]
+    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool BoolValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StringValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool BoolValue {
+            get {
+                return this.BoolValueField;
+            }
+            set {
+                if ((this.BoolValueField.Equals(value) != true)) {
+                    this.BoolValueField = value;
+                    this.RaisePropertyChanged("BoolValue");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string StringValue {
+            get {
+                return this.StringValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
+                    this.StringValueField = value;
+                    this.RaisePropertyChanged("StringValue");
                 }
             }
         }
@@ -107,100 +168,114 @@ namespace AseguradoraUI.ServicePolicy {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicePolicy.IServicePolicy")]
-    public interface IServicePolicy {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicePolicy.IService1")]
+    public interface IService1 {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/GetData", ReplyAction="http://tempuri.org/IServicePolicy/GetDataResponse")]
-        AseguradoraUI.ServicePolicy.Policy GetData(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
+        AseguradoraUI.ServicePolicy.Policies GetData(int value);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/GetData", ReplyAction="http://tempuri.org/IServicePolicy/GetDataResponse")]
-        System.Threading.Tasks.Task<AseguradoraUI.ServicePolicy.Policy> GetDataAsync(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
+        System.Threading.Tasks.Task<AseguradoraUI.ServicePolicy.Policies> GetDataAsync(int value);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IServicePolicy/GetDataUsingDataContractResponse")]
-        AseguradoraUI.ServicePolicy.Policy GetDataUsingDataContract(AseguradoraUI.ServicePolicy.Policy composite);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
+        AseguradoraUI.ServicePolicy.CompositeType GetDataUsingDataContract(AseguradoraUI.ServicePolicy.CompositeType composite);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IServicePolicy/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<AseguradoraUI.ServicePolicy.Policy> GetDataUsingDataContractAsync(AseguradoraUI.ServicePolicy.Policy composite);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
+        System.Threading.Tasks.Task<AseguradoraUI.ServicePolicy.CompositeType> GetDataUsingDataContractAsync(AseguradoraUI.ServicePolicy.CompositeType composite);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/GetAllPolicies", ReplyAction="http://tempuri.org/IServicePolicy/GetAllPoliciesResponse")]
-        AseguradoraUI.ServicePolicy.Policy[] GetAllPolicies();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPolicie", ReplyAction="http://tempuri.org/IService1/AddPolicieResponse")]
+        void AddPolicie(int i, string n, string d, string y);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/GetAllPolicies", ReplyAction="http://tempuri.org/IServicePolicy/GetAllPoliciesResponse")]
-        System.Threading.Tasks.Task<AseguradoraUI.ServicePolicy.Policy[]> GetAllPoliciesAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPolicie", ReplyAction="http://tempuri.org/IService1/AddPolicieResponse")]
+        System.Threading.Tasks.Task AddPolicieAsync(int i, string n, string d, string y);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/GetAllID", ReplyAction="http://tempuri.org/IServicePolicy/GetAllIDResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllPolicies", ReplyAction="http://tempuri.org/IService1/GetAllPoliciesResponse")]
+        AseguradoraUI.ServicePolicy.Policies[] GetAllPolicies();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllPolicies", ReplyAction="http://tempuri.org/IService1/GetAllPoliciesResponse")]
+        System.Threading.Tasks.Task<AseguradoraUI.ServicePolicy.Policies[]> GetAllPoliciesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllID", ReplyAction="http://tempuri.org/IService1/GetAllIDResponse")]
         int[] GetAllID();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/GetAllID", ReplyAction="http://tempuri.org/IServicePolicy/GetAllIDResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllID", ReplyAction="http://tempuri.org/IService1/GetAllIDResponse")]
         System.Threading.Tasks.Task<int[]> GetAllIDAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/AddPolicy", ReplyAction="http://tempuri.org/IServicePolicy/AddPolicyResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPolicy", ReplyAction="http://tempuri.org/IService1/AddPolicyResponse")]
         bool AddPolicy(int id, string name, string desc, string type);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/AddPolicy", ReplyAction="http://tempuri.org/IServicePolicy/AddPolicyResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPolicy", ReplyAction="http://tempuri.org/IService1/AddPolicyResponse")]
         System.Threading.Tasks.Task<bool> AddPolicyAsync(int id, string name, string desc, string type);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/RemovePolicy", ReplyAction="http://tempuri.org/IServicePolicy/RemovePolicyResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemovePolicy", ReplyAction="http://tempuri.org/IService1/RemovePolicyResponse")]
         bool RemovePolicy(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/RemovePolicy", ReplyAction="http://tempuri.org/IServicePolicy/RemovePolicyResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemovePolicy", ReplyAction="http://tempuri.org/IService1/RemovePolicyResponse")]
         System.Threading.Tasks.Task<bool> RemovePolicyAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/UpdatePolicy", ReplyAction="http://tempuri.org/IServicePolicy/UpdatePolicyResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePolicy", ReplyAction="http://tempuri.org/IService1/UpdatePolicyResponse")]
         bool UpdatePolicy(int id, string name, string desc, string type);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicePolicy/UpdatePolicy", ReplyAction="http://tempuri.org/IServicePolicy/UpdatePolicyResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePolicy", ReplyAction="http://tempuri.org/IService1/UpdatePolicyResponse")]
         System.Threading.Tasks.Task<bool> UpdatePolicyAsync(int id, string name, string desc, string type);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServicePolicyChannel : AseguradoraUI.ServicePolicy.IServicePolicy, System.ServiceModel.IClientChannel {
+    public interface IService1Channel : AseguradoraUI.ServicePolicy.IService1, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServicePolicyClient : System.ServiceModel.ClientBase<AseguradoraUI.ServicePolicy.IServicePolicy>, AseguradoraUI.ServicePolicy.IServicePolicy {
+    public partial class Service1Client : System.ServiceModel.ClientBase<AseguradoraUI.ServicePolicy.IService1>, AseguradoraUI.ServicePolicy.IService1 {
         
-        public ServicePolicyClient() {
+        public Service1Client() {
         }
         
-        public ServicePolicyClient(string endpointConfigurationName) : 
+        public Service1Client(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public ServicePolicyClient(string endpointConfigurationName, string remoteAddress) : 
+        public Service1Client(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServicePolicyClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public Service1Client(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServicePolicyClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public Service1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public AseguradoraUI.ServicePolicy.Policy GetData(int id) {
-            return base.Channel.GetData(id);
+        public AseguradoraUI.ServicePolicy.Policies GetData(int value) {
+            return base.Channel.GetData(value);
         }
         
-        public System.Threading.Tasks.Task<AseguradoraUI.ServicePolicy.Policy> GetDataAsync(int id) {
-            return base.Channel.GetDataAsync(id);
+        public System.Threading.Tasks.Task<AseguradoraUI.ServicePolicy.Policies> GetDataAsync(int value) {
+            return base.Channel.GetDataAsync(value);
         }
         
-        public AseguradoraUI.ServicePolicy.Policy GetDataUsingDataContract(AseguradoraUI.ServicePolicy.Policy composite) {
+        public AseguradoraUI.ServicePolicy.CompositeType GetDataUsingDataContract(AseguradoraUI.ServicePolicy.CompositeType composite) {
             return base.Channel.GetDataUsingDataContract(composite);
         }
         
-        public System.Threading.Tasks.Task<AseguradoraUI.ServicePolicy.Policy> GetDataUsingDataContractAsync(AseguradoraUI.ServicePolicy.Policy composite) {
+        public System.Threading.Tasks.Task<AseguradoraUI.ServicePolicy.CompositeType> GetDataUsingDataContractAsync(AseguradoraUI.ServicePolicy.CompositeType composite) {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
-        public AseguradoraUI.ServicePolicy.Policy[] GetAllPolicies() {
+        public void AddPolicie(int i, string n, string d, string y) {
+            base.Channel.AddPolicie(i, n, d, y);
+        }
+        
+        public System.Threading.Tasks.Task AddPolicieAsync(int i, string n, string d, string y) {
+            return base.Channel.AddPolicieAsync(i, n, d, y);
+        }
+        
+        public AseguradoraUI.ServicePolicy.Policies[] GetAllPolicies() {
             return base.Channel.GetAllPolicies();
         }
         
-        public System.Threading.Tasks.Task<AseguradoraUI.ServicePolicy.Policy[]> GetAllPoliciesAsync() {
+        public System.Threading.Tasks.Task<AseguradoraUI.ServicePolicy.Policies[]> GetAllPoliciesAsync() {
             return base.Channel.GetAllPoliciesAsync();
         }
         

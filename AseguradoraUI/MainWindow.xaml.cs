@@ -45,13 +45,13 @@ namespace AseguradoraUI
 
         private async void refreshTable()
         {
-            ServicePolicyClient ServicePolicy = new ServicePolicyClient();
+            var ServicePolicy = new ServicePolicy.Service1Client();
             var pol = await ServicePolicy.GetAllPoliciesAsync();
             RemoveRows();
             AddRows(pol);
         }
 
-        private void AddRows(Policy[] pol)
+        private void AddRows(Policies[] pol)
         {
             var rg = new TableRowGroup();//TablePoliza.RowGroups[0];
             int i = 0;
@@ -61,9 +61,9 @@ namespace AseguradoraUI
                 TableRow tR = new TableRow();
                 rg.Rows.Add(tR);
                 TableCell id = new TableCell(new Paragraph(new Run(policy.ID.ToString())));
-                TableCell name = new TableCell(new Paragraph(new Run(policy.Name)));
-                TableCell description = new TableCell(new Paragraph(new Run(policy.Description)));
-                TableCell type = new TableCell(new Paragraph(new Run(policy.Type)));
+                TableCell name = new TableCell(new Paragraph(new Run(policy.name)));
+                TableCell description = new TableCell(new Paragraph(new Run(policy.description)));
+                TableCell type = new TableCell(new Paragraph(new Run(policy.type)));
 
                 if (i % 2 == 0)
                     tR.Background = Brushes.LightGray;
@@ -102,8 +102,8 @@ namespace AseguradoraUI
 
         private async void enviar_Click(object sender, RoutedEventArgs e)
         {
-            ServicePolicyClient ServicePolicy = new ServicePolicyClient();
-            Policy p = new Policy();
+            var ServicePolicy = new Service1Client();
+            var p = new Policies();
             int ident;
             bool result = Int32.TryParse(id.Text, out ident);
             if (!result)
